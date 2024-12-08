@@ -71,4 +71,4 @@ captura os argumentos da linha de comando
 ## 21. console.log(parseInt(args[0]) + parseInt(args[1])); 
 Realiza a soma e exibe o resultado. OBS:no lugar do a b deve-se substituir e colocar algum numero                                    
 ## 22. explicação de como executar o novo codigo "Feat: add conditional evaluation" e as operações que ele é capaz de realizar:
-ele pode relaizar qualquer operação matemática como soma, subtração, multiplicação e divisão. Para compilar use: node calculadora.js a (simbolo da operação desejada) b
+ele pode realizar qualquer operação matemática como soma, subtração, multiplicação e divisão. Para compilar use: node calculadora.js a (simbolo da operação desejada) b
