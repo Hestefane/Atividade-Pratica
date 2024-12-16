@@ -1,49 +1,140 @@
+# Perguntas e Respostas sobre Typescript
 
-# TypeScript
+## 1. O que exatamente é o Typescript?
+**Typescript** é uma linguagem de programação de codigo aberto desenvolvida pela Microsoft que estende o JavaScript, ou seja,  um conjunto de ferramentas e formas mais eficientes de escrever código JavaScript, adicionando recursos que não estão presentes de maneira nativa na linguagem.
 
-[![GitHub Actions CI](https://github.com/microsoft/TypeScript/workflows/CI/badge.svg)](https://github.com/microsoft/TypeScript/actions?query=workflow%3ACI)
-[![Devops Build Status](https://dev.azure.com/typescript/TypeScript/_apis/build/status/Typescript/node10)](https://dev.azure.com/typescript/TypeScript/_build?definitionId=7)
-[![npm version](https://badge.fury.io/js/typescript.svg)](https://www.npmjs.com/package/typescript)
-[![Downloads](https://img.shields.io/npm/dm/typescript.svg)](https://www.npmjs.com/package/typescript)
+## 2.  Descreva os tipos básicos do Typescript
+Os tipos básicos em TypeScript são:
 
-[TypeScript](https://www.typescriptlang.org/) is a language for application-scale JavaScript. TypeScript adds optional types to JavaScript that support tools for large-scale JavaScript applications for any browser, for any host, on any OS. TypeScript compiles to readable, standards-based JavaScript. Try it out at the [playground](https://www.typescriptlang.org/play/), and stay up to date via [our blog](https://blogs.msdn.microsoft.com/typescript) and [Twitter account](https://twitter.com/typescript).
+- **`string`**: Representa textos. Exemplo: `"Hello"`.
+- **`number`**: Representa números, sejam inteiros ou decimais. Exemplo: `44`, `3.16`.
+- **`boolean`**: Representa valores lógicos: `true` ou `false`.
+- **`any`**: Permite armazenar qualquer tipo, mas desativa a verificação de tipo.
+- **`void`**: Representa ausência de valor. É geralmente usado para funções que não retornam nada.
+- **`null` e `undefined`**: Representam valores ausentes ou indefinidos.
+- **`array`**: É Uma lista de elementos do mesmo tipo. Exemplo: `number[]` ou `Array<string>`.
+- **`tuple`**: Um array com um número fixo de elementos de tipos específicos. Exemplo: `[string, number]`.
+- **`enum`**: Conjunto de valores nomeados. Exemplo:
+  ```typescript
+  enum Color {
+    Red,
+    Green,
+    Blue,
+  }
 
-Find others who are using TypeScript at [our community page](https://www.typescriptlang.org/community/).
+## 3. O que é uma interface?
 
-## Installing
+Em TypeScript, uma interface é uma estrutura que define a forma de um objeto. Ela especifica as propriedades e métodos que um objeto deve ter,  garantindo que ele siga um formato específico.
 
-For the latest stable version:
+### Exemplo:
 
-```bash
-npm install -g typescript
-```
+```typescript
+interface User {
+  id: number;         
+  name: string;      
+  email?: string;     
+}
 
-For our nightly builds:
+const user: User = {
+  id: 1,
+  name: "Hestefane",
+};
 
-```bash
-npm install -g typescript@next
-```
+_OBS:_  
+- A propriedade `id` deve ser um número.  
+- A propriedade `name` deve ser uma string.  
+- A propriedade `email` é opcional.
 
-## Contribute
 
-There are many ways to [contribute](https://github.com/microsoft/TypeScript/blob/main/CONTRIBUTING.md) to TypeScript.
-* [Submit bugs](https://github.com/microsoft/TypeScript/issues) and help us verify fixes as they are checked in.
-* Review the [source code changes](https://github.com/microsoft/TypeScript/pulls).
-* Engage with other TypeScript users and developers on [StackOverflow](https://stackoverflow.com/questions/tagged/typescript).
-* Help each other in the [TypeScript Community Discord](https://discord.gg/typescript).
-* Join the [#typescript](https://twitter.com/search?q=%23TypeScript) discussion on Twitter.
-* [Contribute bug fixes](https://github.com/microsoft/TypeScript/blob/main/CONTRIBUTING.md).
+## 4. O que é uma classe?
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see
-the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com)
-with any additional questions or comments.
+Uma classe em TypeScript é uma estrutura que permite criar objetos com propriedades e comportamentos definidos. Ela combina dados (propriedades) e funcionalidades (métodos) em um único bloco de código, facilitando a reutilização e a organização do projeto.
 
-## Documentation
+### Exemplo:
 
-*  [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
-*  [Programming handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-*  [Homepage](https://www.typescriptlang.org/)
+```typescript
+class ResearchProject {
+  title: string;
+  researcher: string;
 
-## Roadmap
+  // para inicializar as propriedades
+  constructor(title: string, researcher: string) {
+    this.title = title;
+    this.researcher = researcher;
+  }
 
-For details on our planned features and future direction please refer to our [roadmap](https://github.com/microsoft/TypeScript/wiki/Roadmap).
+  // para exibir informações do projeto
+  getProjectInfo(): string {
+    return `O projeto "${this.title}" está sendo desenvolvido por ${this.researcher} no TerraLab.`;
+  }
+}
+
+// instância da classe
+const project = new ResearchProject("Monitoramento de Dados Ambientais", "Maria"); // Maria é um exemplo ipotetico de nome
+console.log(project.getProjectInfo());
+// O projeto "Monitoramento de Dados Ambientais" está sendo desenvolvido por Maria no TerraLab.
+
+
+
+## 5. O que é uma herança?
+Herança é um conceito fundamental da programação orientada a objetos (POO) que permite a uma classe **herdar** propriedades e métodos de outra classe. Promovendo o reuso de código e a criação de hierarquias, permitindo-nos definir comportamentos comuns em uma classe base e especializar esses comportamentos em classes derivadas.
+
+Em TypeScript, a palavra-chave `extends` é usada para criar uma classe filha que herda de uma classe pai.
+
+### Exemplo:
+
+```typescript
+class Employee {
+  name: string;
+  position: string;
+
+  constructor(name: string, position: string) {
+    this.name = name;
+    this.position = position;
+  }
+
+  getDetails(): string {
+    return `${this.name} trabalha como ${this.position}.`;
+  }
+}
+
+class Manager extends Employee {
+  department: string;
+
+  constructor(name: string, position: string, department: string) {
+    super(name, position); // Chama o construtor da classe pai (Employee)
+    this.department = department;
+  }
+
+  // Sobrescreve o método getDetails da classe pai
+  getDetails(): string {
+    return `${this.name} é o gerente do departamento de ${this.department}.`;
+  }
+}
+
+const manager = new Manager("Caio Lucas", "Gerente", "Front-end");
+console.log(manager.getDetails()); // Caio Lucas é o gerente do departamento de Front-end.
+
+
+## 6. Quais as vantagens de usar o Typescript ao invés de somente o Javascript?
+Algumas das vantagens:
+
+### 1. **Tipagem Estática**
+TypeScript permite a definição de tipos para variáveis, parâmetros e valores de retorno, ajudando a evitar erros durante a execução. A tipagem estática oferece mais segurança porque permite que o compilador verifique se o código está correto em tempo de desenvolvimento.
+
+### 2. **Detecção de erros Antecipado**
+O TypeScript ajuda a identificar erros de tipo durante o desenvolvimento, antes mesmo de rodar o código. Isso reduz a probabilidade de bugs em produção.
+
+### 3. **Suporte a Classes e Interfaces**
+TypeScript facilita o uso de conceitos de programação orientada a objetos, como classes e interfaces.
+
+### 4. **Refatoração Mais Segura**
+Quando altera o código, a verificação de tipos do TypeScript garante que não cometa erros acidentais, o que facilita a refatoração de grandes trechos de código com maior confiança.
+
+### 5. **Compatibilidade com JavaScript**
+O TypeScript é compatível com qualquer código JavaScript.
+
+### 6. Melhor Manutenção e Escalabilidade
+Projetos grandes, com várias pessoas trabalhando no código, podem se beneficiar significativamente da estrutura e dos tipos definidos pelo TypeScript. Isso facilita a manutenção e a escalabilidade do código à medida que o projeto cresce, garantindo maior consistência e menos erros.
+
+### 7. Intellisense
