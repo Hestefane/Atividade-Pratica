@@ -1,0 +1,261 @@
+/* Modo Noturno */
+.app.dark {
+  background-color: #121212; /* Fundo escuro */
+  color: white;
+}
+
+body.dark-mode {
+  background-color: #121212; /* Fundo escuro para a página inteira */
+  color: white;
+  margin: 0; /* Remove margens padrão do body */
+  padding: 0; /* Remove padding padrão do body */
+  min-height: 100vh; /* Garante que o fundo preencha a tela */
+}
+
+.app.dark h1, .app.dark h3, .app.dark p {
+  color: white;
+}
+
+/* Botões */
+button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões principais no modo escuro */
+.app.dark button.save-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.app.dark button.save-button:hover {
+  background-color: #218838;
+}
+
+.app.dark button.cancel-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.app.dark button.cancel-button:hover {
+  background-color: #c82333;
+}
+
+/* Alteração: Cor mais harmônica para o botão "Editar" */
+.app.dark button.edit-button {
+  background-color: #17a2b8; /* Azul harmonioso */
+  color: white;
+  padding: 0.8rem 1.2rem; 
+}
+
+.app.dark button.edit-button:hover {
+  background-color: #138496; /* Azul mais escuro */
+}
+
+.app.dark button.delete-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 0.8rem 1.2rem; 
+}
+
+.app.dark button.delete-button:hover {
+  background-color: #c82333;
+}
+
+.app.dark button.completion-button {
+  background-color: #28a745; /* Verde */
+  color: white;
+  padding: 0.8rem 1.2rem; 
+  font-size: 1rem; 
+}
+
+.app.dark button.completion-button.completed {
+  background-color: #218838; /* Verde escuro */
+}
+
+.app.dark button.completion-button:hover {
+  background-color: #1e7e34;
+}
+
+/* Botões - Modo Claro */
+.app.light button.save-button {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.app.light button.save-button:hover {
+  background-color: #27ae60;
+}
+
+.app.light button.cancel-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.app.light button.cancel-button:hover {
+  background-color: #c0392b;
+}
+
+.app.light button.edit-button {
+  background-color: #17a2b8; /* Azul harmonioso */
+  color: white;
+  padding: 0.8rem 1.2rem; /* Igual ao restante */
+}
+
+.app.light button.edit-button:hover {
+  background-color: #138496; /* Azul mais escuro */
+}
+
+.app.light button.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.8rem 1.2rem; /* Igual ao restante */
+}
+
+.app.light button.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.app.light button.completion-button {
+  background-color: #2ecc71; /* Verde */
+  color: white;
+  padding: 0.8rem 1.2rem; /* Igual ao restante */
+  font-size: 1rem; /* Tamanho ajustado */
+}
+
+.app.light button.completion-button:hover {
+  background-color: #27ae60;
+}
+
+.app.light button.completion-button.completed {
+  background-color: #27ae60;
+}
+
+/* Layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app.dark .header {
+  background-color: #222;
+}
+
+.habit-container {
+  padding: 1rem;
+}
+
+.habit-container.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.habit-container.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.habit-card {
+  background-color: #f5f5f5; /* Cor clara de fundo */
+  border: 1px solid #ddd;   /* Bordas sutis */
+  border-radius: 8px;       /* Bordas arredondadas */
+  padding: 16px;            /* Espaçamento interno */
+  margin: 8px;              /* Espaçamento entre cards */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  transition: transform 0.2s, box-shadow 0.2s; /* Animação ao passar o mouse */
+}
+
+.habit-card:hover {
+  transform: translateY(-4px); /* Elevar o card */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Intensificar sombra */
+}
+
+.habit-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.habit-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+}
+
+.app.dark .habit-card {
+  background-color: #333;
+  border-color: #555;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-width: 400px;
+  width: 100%;
+}
+
+.app.dark .modal {
+  background: #222;
+  color: white;
+}
+
+.modal h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.modal label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.modal label input, .modal label select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
